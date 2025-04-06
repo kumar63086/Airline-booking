@@ -1,6 +1,6 @@
 
-const infocontroller=require("./info-controller");
+
 module.exports={
-    // infocontroller:require("./info-controller"),
-      infocontroller      
+     infocontroller:require("./info-controller"),
+     airplaneController:require("./airplane-controller")
 }
