@@ -3,6 +3,6 @@ const router=express.Router();
 const infocontroller=require("../../controllers/info-controller");
 const airplaneRoute=require("./airplane-route");
 
-router.use("/airplane",airplaneRoute);
+router.use("/airplanes",airplaneRoute);
 router.get("/info",infocontroller.info);
 module.exports=router;

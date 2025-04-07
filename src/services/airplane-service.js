@@ -1,3 +1,4 @@
+
 const { AppError } = require('../utils/error/Aap-errors');
 const { StatusCodes } = require('http-status-codes');
 const AirplaneRepository = require('../repositories').AirplaneRepository;
@@ -24,7 +25,7 @@ try {
 }
 }
 
-async function getAirplane() {
+async function getAirplanes() {
     try {
         const airplane = await airplaneRepository.getAll();
         return airplane;
@@ -32,8 +33,35 @@ async function getAirplane() {
         throw new AppError("cannot get airplane",StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
+ 
+async function getAirplane(id) {
+    try {
+        const airplane = await airplaneRepository.get(id);
 
+        return airplane;
+    } catch (error) {
+
+        if(error.statusCode == StatusCodes.NOT_FOUND){
+            throw new AppError("cannot get airplane",StatusCodes.NOT_FOUND);
+        }
+        throw new AppError("cannot get airplane",StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+async function destroyAirplane(id) {
+    try {
+        const airplane = await airplaneRepository.destroy(id);
+        return airplane;
+    } catch (error) {
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError("cannot destroy airplane",StatusCodes.NOT_FOUND);
+        }
+        throw new AppError("cannot destroy airplane",StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
 module.exports = {
     createAirplane
-    ,getAirplane
+    ,getAirplanes
+    ,getAirplane,
+    destroyAirplane
 };

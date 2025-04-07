@@ -1,4 +1,6 @@
 const {logger} = require('../config');
+const { AppError } = require('../utils/error/Aap-errors');
+const {StatusCodes }= require('http-status-codes')
 class CurdRepositories {
     constructor(model) {
         this.model = model;
@@ -19,14 +21,22 @@ class CurdRepositories {
                 id:data
             }
            });
+
+           if(!response){
+              throw new AppError('Entity not found',StatusCodes.NOT_FOUND);
+           }
            return response;
         
     }
     
-    async get(data) {
+    async get(id) {
         
-           const  response= await this.model.findBypk(data);
+           const  response= await this.model.findByPk(id);
+           if(!response){
+              throw new AppError('Entity not found',StatusCodes.NOT_FOUND);
+           }
            return response;
+
         
     }
   
