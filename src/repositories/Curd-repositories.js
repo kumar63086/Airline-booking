@@ -54,6 +54,9 @@ class CurdRepositories {
                 id:id
             }
            });
+           if(!response){
+              throw new AppError('Entity not found',StatusCodes.NOT_FOUND);
+           }
            return response;
         
     }
