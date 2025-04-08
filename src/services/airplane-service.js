@@ -11,13 +11,13 @@ try {
     return airplane;
 }
  catch (error) {
-   console.log(error.name);
+   //console.log(error.name);
     if(error.name == "SequelizeValidationError"){
        let explanation=[] 
        error.errors.forEach(err=>{
            explanation.push(err.message);
        })
-       console.log(explanation);
+       //console.log(explanation);
     throw new AppError("cannot create airplane",StatusCodes.BAD_REQUEST);
    
     }
