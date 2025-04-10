@@ -46,3 +46,17 @@ Lets take a look inside the `src` folder
  ```
  npm run dev
  ```
+
+### Setup the Project .env file
+Port=8234
+NODE_ENV=
+#DB Credentials
+DB_USERNAME=
+DB_PASSWORD=
+DB_NAME=
+DB_HOST=localhost
+DB_PORT=5432
+JWT_SECRET_KEY=
+JWT_EXPIRES_IN="1d"
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
