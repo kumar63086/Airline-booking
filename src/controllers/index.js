@@ -3,5 +3,6 @@
 module.exports={
      infocontroller:require("./info-controller"),
      airplaneController:require("./airplane-controller")
-     ,cityController:require("./city-controller")
+     ,cityController:require("./city-controller"),
+     airportController: require('./airport-controllers'),
 }

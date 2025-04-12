@@ -1,0 +1,10 @@
+const express = require('express');
+const {airportController} = require('../../controllers');
+const router = express.Router();
+const airportMiddlewares=require("../../middleware/airport-middlewares");
+router.post('/',airportMiddlewares.validateCreateRequest,airportController.createAirport);
+router.get('/',airportController.getAirports);
+router.get('/:id',airportController.getAirport);
+router.delete('/:id',airportController.destroyAirport);
+router.put('/:id', airportController.updateAirport);
+module.exports = router;

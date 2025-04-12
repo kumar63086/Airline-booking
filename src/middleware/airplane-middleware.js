@@ -1,6 +1,5 @@
 const {StatusCodes} = require('http-status-codes');
-const {errorResponse} = require("../utils/common");
-const { AppError } = require('../utils/error/Aap-errors');
+
 function validateCreateAirplane(req,res,next){
     
     if(!req.body.modelNumber){
@@ -16,3 +15,24 @@ function validateCreateAirplane(req,res,next){
     next();
 }
 module.exports={validateCreateAirplane};
+
+
+// const { StatusCodes } = require('http-status-codes');
+// const {errorResponse} = require("../utils/common");
+// const { AppError } = require('../utils/error/Aap-errors');
+
+
+// function validateCreateAirplane(req, res, next) {
+//     if(!req.body.modelNumber) {
+//         errorResponse.message = 'Something went wrong while creating airplane';
+//         errorResponse.error = new AppError(['Model Number not found in the oncoming request in the correct form'], StatusCodes.BAD_REQUEST);
+//         return res
+//                 .status(StatusCodes.BAD_REQUEST)
+//                 .json(errorResponse);
+//     }
+//     next();
+// }
+
+// module.exports = {
+//     validateCreateAirplane
+// }
