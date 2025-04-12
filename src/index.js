@@ -19,4 +19,7 @@ app.get('/', (req, res) => {
 app.listen(ServerConfig.PORT, () => {
   console.log(`Server is running on port ${ServerConfig.PORT}`);
   logger.info(`🚀 Server is running on port ${ServerConfig.PORT}`);
+  // const {airport,City,} = require('./models');
+  // const city = await City.findByPk(1);
+  // console.log(city);
 });
